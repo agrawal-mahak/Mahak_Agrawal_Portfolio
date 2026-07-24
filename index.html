@@ -424,6 +424,35 @@
         transform: rotate(15deg);
       }
 
+      .mobile-theme-item {
+        display: none;
+        margin-top: 10px;
+      }
+      @media (max-width: 991px) {
+        .mobile-theme-item {
+          display: block;
+        }
+      }
+      .mobile-theme-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 10px 20px;
+        border-radius: var(--radius-full);
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: var(--transition);
+      }
+      .mobile-theme-btn:hover {
+        border-color: var(--accent-cyan);
+        color: var(--accent-cyan);
+      }
+
       .mobile-toggle {
         display: none;
         background: none;
@@ -1636,21 +1665,78 @@
       }
 
       /* ==========================================================================
-           RESPONSIVE MEDIA QUERIES (DESKTOP, TABLETS & PHONES DOWN TO 320PX)
-           ========================================================================== */
+         COMPREHENSIVE RESPONSIVE MEDIA QUERIES (DESKTOP, TABLETS & PHONES DOWN TO 320PX)
+         ========================================================================== */
 
-      /* Tablets Landscape & Laptop (992px - 1199px) */
       @media (max-width: 1199px) {
         .hero-grid {
           grid-template-columns: 1.1fr 0.9fr;
           gap: 30px;
         }
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .skills-matrix {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
 
-      /* Tablets Portrait (768px - 991px) */
       @media (max-width: 991px) {
         section {
-          padding: 70px 0;
+          padding: 60px 0;
+        }
+        header {
+          padding: 12px 0;
+        }
+        .brand-logo {
+          font-size: 1.15rem;
+        }
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: var(--bg-header);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid var(--border-color);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 22px;
+          transition: var(--transition);
+          padding: 20px;
+          z-index: 9999;
+        }
+        .nav-links a {
+          color: var(--text-primary);
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+        .nav-links a.active,
+        .nav-links a:hover {
+          color: var(--accent-cyan);
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .mobile-toggle {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: var(--radius-md);
+          background: rgba(0, 201, 167, 0.12);
+          border: 1px solid var(--accent-cyan);
+          color: var(--accent-cyan);
+          font-size: 1.15rem;
+          cursor: pointer;
+        }
+        .nav-actions .btn-secondary,
+        .theme-toggle-btn {
+          display: none !important;
         }
         .hero-grid {
           grid-template-columns: 1fr;
@@ -1661,10 +1747,12 @@
         }
         .hero-bio {
           margin: 0 auto;
+          font-size: 1rem;
         }
         .hero-metrics {
           width: 100%;
-          max-width: 500px;
+          max-width: 550px;
+          margin: 0 auto 25px;
         }
         .hero-buttons {
           justify-content: center;
@@ -1675,28 +1763,33 @@
         .about-grid {
           grid-template-columns: 1fr;
         }
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-matrix {
+          grid-template-columns: 1fr;
+        }
+        .fun-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
       }
 
-      /* Mobile Phones Landscape & Large Mobile (576px - 767px) */
       @media (max-width: 767px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: var(--bg-base);
-          flex-direction: column;
-          justify-content: center;
-          gap: 25px;
-          transition: var(--transition);
-          padding: 20px;
+        .nav-actions .nav-btn-text {
+          display: none;
         }
-        .nav-links.active {
-          left: 0;
+        .hero-title {
+          font-size: 2.2rem;
+          line-height: 1.25;
         }
-        .mobile-toggle {
-          display: block;
+        .hero-metrics {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
         }
         .timeline::before {
           left: 15px;
@@ -1719,20 +1812,45 @@
           align-items: flex-start;
           gap: 6px;
         }
+        .editor-header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 12px;
+          gap: 10px;
+        }
+        .editor-tabs {
+          width: 100%;
+          overflow-x: auto;
+          white-space: nowrap;
+          padding-bottom: 5px;
+          -webkit-overflow-scrolling: touch;
+        }
+        .copy-code-btn {
+          align-self: flex-end;
+        }
+        .code-display-body pre {
+          font-size: 0.78rem;
+          padding: 15px 12px;
+          max-height: 350px;
+          overflow-x: auto;
+        }
         .footer-container {
           flex-direction: column;
           text-align: center;
+          gap: 15px;
         }
       }
 
-      /* Small Mobile Phones (320px - 575px) */
       @media (max-width: 575px) {
         .container {
           width: 92%;
         }
+        .hero-title {
+          font-size: 1.85rem;
+        }
         .hero-avatar-card {
-          max-width: 260px;
-          height: 320px;
+          max-width: 240px;
+          height: 290px;
         }
         .hero-buttons {
           flex-direction: column;
@@ -1750,6 +1868,8 @@
         }
         .filter-btn {
           flex-shrink: 0;
+          padding: 6px 14px;
+          font-size: 0.8rem;
         }
         .terminal-modal {
           bottom: 15px;
@@ -1769,6 +1889,9 @@
         .contact-card {
           flex-direction: column;
           text-align: center;
+        }
+        .nav-actions .btn-secondary.btn-sm {
+          display: none;
         }
       }
     </style>
@@ -1795,6 +1918,11 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#playground">Code</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li class="mobile-theme-item">
+            <button class="mobile-theme-btn" id="mobileThemeToggle">
+              <i class="fas fa-moon" id="mobileThemeIcon"></i> <span id="mobileThemeText">Theme (Dark)</span>
+            </button>
+          </li>
         </ul>
 
         <div class="nav-actions">
@@ -1808,8 +1936,8 @@
           <a href="https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view" target="_blank" class="btn btn-secondary btn-sm">
             <i class="fas fa-file-pdf"></i> Resume
           </a>
-          <a href="#contact" class="btn btn-primary btn-sm">
-            <i class="fas fa-paper-plane"></i> Hire Me
+          <a href="#contact" class="btn btn-primary btn-sm" title="Hire Me">
+            <i class="fas fa-paper-plane"></i> <span class="nav-btn-text">Hire Me</span>
           </a>
           <button
             class="mobile-toggle"
@@ -3126,18 +3254,32 @@
       }
       typeLoop();
 
-      /* Theme Toggle (Dark/Light) */
+      /* Theme Toggle Handler (Desktop & Mobile Drawer) */
       const themeToggleBtn = document.getElementById("themeToggle");
-      themeToggleBtn.addEventListener("click", () => {
-        const currentTheme =
-          document.documentElement.getAttribute("data-theme");
+      const mobileThemeToggleBtn = document.getElementById("mobileThemeToggle");
+      const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+      const mobileThemeText = document.getElementById("mobileThemeText");
+
+      function toggleThemeMode() {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
-        themeToggleBtn.innerHTML =
-          newTheme === "dark"
-            ? '<i class="fas fa-moon"></i>'
-            : '<i class="fas fa-sun" style="color:#F59E0B;"></i>';
-      });
+
+        if (themeToggleBtn) {
+          themeToggleBtn.innerHTML =
+            newTheme === "dark"
+              ? '<i class="fas fa-moon"></i>'
+              : '<i class="fas fa-sun" style="color:#F59E0B;"></i>';
+        }
+        if (mobileThemeIcon && mobileThemeText) {
+          mobileThemeIcon.className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+          mobileThemeIcon.style.color = newTheme === "dark" ? "" : "#F59E0B";
+          mobileThemeText.textContent = newTheme === "dark" ? "Theme (Dark)" : "Theme (Light)";
+        }
+      }
+
+      if (themeToggleBtn) themeToggleBtn.addEventListener("click", toggleThemeMode);
+      if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener("click", toggleThemeMode);
 
       /* Mobile Menu Toggle & Lock Scroll */
       const mobileToggle = document.getElementById("mobileToggle");
