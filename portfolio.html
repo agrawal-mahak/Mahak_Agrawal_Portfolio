@@ -241,33 +241,51 @@
             font-size: 0.85rem;
         }
 
-        /* Floating Status Badge */
+        /* Floating Status Badge - High Contrast & Neon Glow */
         .status-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: #10B981;
-            padding: 6px 14px;
+            gap: 10px;
+            background: rgba(13, 27, 42, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid #00F5D4;
+            color: #34D399;
+            padding: 8px 18px;
             border-radius: var(--radius-full);
-            font-size: 0.82rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 25px rgba(0, 245, 212, 0.35), 0 0 15px rgba(0, 201, 167, 0.25);
+            transition: var(--transition);
+        }
+
+        .status-badge:hover {
+            border-color: #FFFFFF;
+            box-shadow: 0 8px 30px rgba(0, 245, 212, 0.55);
+            color: #FFFFFF;
+        }
+
+        [data-theme="light"] .status-badge {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1.5px solid #059669;
+            color: #047857;
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.25);
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #10B981;
+            width: 10px;
+            height: 10px;
+            background-color: #00F5D4;
             border-radius: 50%;
-            box-shadow: 0 0 10px #10B981;
-            animation: pulseDot 2s infinite;
+            box-shadow: 0 0 12px #00F5D4;
+            animation: pulseDot 1.8s infinite;
         }
 
         @keyframes pulseDot {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.8); }
+            70% { transform: scale(1.15); box-shadow: 0 0 0 10px rgba(0, 245, 212, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0); }
         }
 
         /* ==========================================================================
