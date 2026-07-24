@@ -144,8 +144,8 @@
       }
 
       .container {
-        width: 90%;
-        max-width: 1200px;
+        width: 92%;
+        max-width: 1320px;
         margin: 0 auto;
         position: relative;
         z-index: 1;
@@ -1339,6 +1339,38 @@
         resize: vertical;
       }
 
+      .required-star {
+        color: inherit;
+        font-weight: 700;
+        margin-left: 2px;
+      }
+
+      .optional-tag {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: normal;
+        margin-left: 4px;
+      }
+
+      .form-input.input-error {
+        border-color: #ef4444 !important;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.25) !important;
+      }
+
+      .form-error-msg {
+        color: #ef4444;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-top: 6px;
+        display: none;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .form-error-msg.visible {
+        display: flex;
+      }
+
       footer {
         border-top: 1px solid var(--border-color);
         padding: 35px 0;
@@ -1668,6 +1700,30 @@
          COMPREHENSIVE RESPONSIVE MEDIA QUERIES (DESKTOP, TABLETS & PHONES DOWN TO 320PX)
          ========================================================================== */
 
+      /* Large Desktops, 2K & 4K Ultra-Wide Monitors (>= 1400px) */
+      @media (min-width: 1400px) {
+        .container {
+          max-width: 1440px;
+        }
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .skills-matrix {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .hero-title {
+          font-size: 3.5rem;
+        }
+        .hero-bio {
+          font-size: 1.12rem;
+          max-width: 700px;
+        }
+        .hero-avatar-card {
+          max-width: 360px;
+          height: 420px;
+        }
+      }
+
       @media (max-width: 1199px) {
         .hero-grid {
           grid-template-columns: 1.1fr 0.9fr;
@@ -1780,6 +1836,9 @@
       }
 
       @media (max-width: 767px) {
+        .logo-tag {
+          display: none;
+        }
         .nav-actions .nav-btn-text {
           display: none;
         }
@@ -1920,7 +1979,8 @@
           <li><a href="#contact">Contact</a></li>
           <li class="mobile-theme-item">
             <button class="mobile-theme-btn" id="mobileThemeToggle">
-              <i class="fas fa-moon" id="mobileThemeIcon"></i> <span id="mobileThemeText">Theme (Dark)</span>
+              <i class="fas fa-moon" id="mobileThemeIcon"></i>
+              <span id="mobileThemeText">Theme (Dark)</span>
             </button>
           </li>
         </ul>
@@ -1933,11 +1993,16 @@
           >
             <i class="fas fa-moon"></i>
           </button>
-          <a href="https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view" target="_blank" class="btn btn-secondary btn-sm">
+          <a
+            href="https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view"
+            target="_blank"
+            class="btn btn-secondary btn-sm"
+          >
             <i class="fas fa-file-pdf"></i> Resume
           </a>
           <a href="#contact" class="btn btn-primary btn-sm" title="Hire Me">
-            <i class="fas fa-paper-plane"></i> <span class="nav-btn-text">Hire Me</span>
+            <i class="fas fa-paper-plane"></i>
+            <span class="nav-btn-text">Hire Me</span>
           </a>
           <button
             class="mobile-toggle"
@@ -1996,7 +2061,11 @@
               <a href="#projects" class="btn btn-primary">
                 <i class="fas fa-rocket"></i> Explore Work
               </a>
-              <a href="https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view" target="_blank" class="btn btn-secondary">
+              <a
+                href="https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view"
+                target="_blank"
+                class="btn btn-secondary"
+              >
                 <i class="fas fa-file-pdf"></i> View Resume
               </a>
               <a
@@ -2976,7 +3045,9 @@
               <div class="contact-details">
                 <h4>Email Me</h4>
                 <div>
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=agrawalmahak7@gmail.com" target="_blank"
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=agrawalmahak7@gmail.com"
+                    target="_blank"
                     >agrawalmahak7@gmail.com</a
                   >
                   <button
@@ -3004,7 +3075,7 @@
               </div>
               <div class="contact-details">
                 <h4>Location</h4>
-                <p>Ratlam, Madhya Pradesh, India (Open to Remote)</p>
+                <p>Ratlam, Madhya Pradesh, India</p>
               </div>
             </div>
 
@@ -3029,6 +3100,7 @@
               action="https://formsubmit.co/agrawalmahak7@gmail.com"
               method="POST"
               id="contactForm"
+              novalidate
             >
               <input
                 type="hidden"
@@ -3038,36 +3110,55 @@
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <div class="form-group">
-                <label class="form-label" for="senderName">Your Name</label>
+                <label class="form-label" for="senderName"
+                  >Your Name <span class="required-star">*</span></label
+                >
                 <input
                   type="text"
                   id="senderName"
                   name="name"
                   class="form-input"
                   placeholder="e.g. Sarah Jenkins"
-                  required
                 />
+                <div class="form-error-msg" id="nameError"></div>
               </div>
               <div class="form-group">
-                <label class="form-label" for="senderEmail">Your Email</label>
+                <label class="form-label" for="senderEmail"
+                  >Your Email <span class="required-star">*</span></label
+                >
                 <input
                   type="email"
                   id="senderEmail"
                   name="email"
                   class="form-input"
                   placeholder="sarah@company.com"
-                  required
                 />
+                <div class="form-error-msg" id="emailError"></div>
               </div>
               <div class="form-group">
-                <label class="form-label" for="senderMessage">Message</label>
+                <label class="form-label" for="senderPhone"
+                  >Phone Number <span class="optional-tag">(Optional)</span></label
+                >
+                <input
+                  type="tel"
+                  id="senderPhone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="+91 98765 43210"
+                />
+                <div class="form-error-msg" id="phoneError"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="senderMessage"
+                  >Message <span class="required-star">*</span></label
+                >
                 <textarea
                   id="senderMessage"
                   name="message"
                   class="form-input"
                   placeholder="Hi Mahak, we reviewed your portfolio and would love to chat about a Full Stack role..."
-                  required
                 ></textarea>
+                <div class="form-error-msg" id="messageError"></div>
               </div>
               <button type="submit" class="btn btn-primary" style="width: 100%">
                 <i class="fas fa-paper-plane"></i> Send Message
@@ -3261,7 +3352,8 @@
       const mobileThemeText = document.getElementById("mobileThemeText");
 
       function toggleThemeMode() {
-        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
 
@@ -3272,14 +3364,18 @@
               : '<i class="fas fa-sun" style="color:#F59E0B;"></i>';
         }
         if (mobileThemeIcon && mobileThemeText) {
-          mobileThemeIcon.className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+          mobileThemeIcon.className =
+            newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
           mobileThemeIcon.style.color = newTheme === "dark" ? "" : "#F59E0B";
-          mobileThemeText.textContent = newTheme === "dark" ? "Theme (Dark)" : "Theme (Light)";
+          mobileThemeText.textContent =
+            newTheme === "dark" ? "Theme (Dark)" : "Theme (Light)";
         }
       }
 
-      if (themeToggleBtn) themeToggleBtn.addEventListener("click", toggleThemeMode);
-      if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener("click", toggleThemeMode);
+      if (themeToggleBtn)
+        themeToggleBtn.addEventListener("click", toggleThemeMode);
+      if (mobileThemeToggleBtn)
+        mobileThemeToggleBtn.addEventListener("click", toggleThemeMode);
 
       /* Mobile Menu Toggle & Lock Scroll */
       const mobileToggle = document.getElementById("mobileToggle");
@@ -3372,11 +3468,140 @@
         });
       }
 
+      /* Real-Time & On-Blur Contact Form Input Validation */
+      const senderName = document.getElementById("senderName");
+      const senderEmail = document.getElementById("senderEmail");
+      const senderPhone = document.getElementById("senderPhone");
+      const senderMessage = document.getElementById("senderMessage");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const phoneError = document.getElementById("phoneError");
+      const messageError = document.getElementById("messageError");
+
+      function showError(input, errorEl, msg) {
+        if (!input || !errorEl) return;
+        input.classList.add("input-error");
+        errorEl.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${msg}`;
+        errorEl.classList.add("visible");
+      }
+
+      function clearError(input, errorEl) {
+        if (!input || !errorEl) return;
+        input.classList.remove("input-error");
+        errorEl.innerHTML = "";
+        errorEl.classList.remove("visible");
+      }
+
+      function validateName() {
+        if (!senderName) return true;
+        const val = senderName.value.trim();
+        if (!val) {
+          showError(senderName, nameError, "Name is required.");
+          return false;
+        }
+        clearError(senderName, nameError);
+        return true;
+      }
+
+      function validateEmail() {
+        if (!senderEmail) return true;
+        const val = senderEmail.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!val) {
+          showError(senderEmail, emailError, "Email address is required.");
+          return false;
+        } else if (!emailRegex.test(val)) {
+          showError(
+            senderEmail,
+            emailError,
+            "Please enter a valid email address (e.g. sarah@company.com).",
+          );
+          return false;
+        }
+        clearError(senderEmail, emailError);
+        return true;
+      }
+
+      function validatePhone() {
+        if (!senderPhone) return true;
+        const val = senderPhone.value.trim();
+        if (!val) {
+          clearError(senderPhone, phoneError);
+          return true; // Optional field
+        }
+        const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+        if (val.length < 7 || !phoneRegex.test(val)) {
+          showError(
+            senderPhone,
+            phoneError,
+            "Please enter a valid phone number (e.g. +91 98765 43210).",
+          );
+          return false;
+        }
+        clearError(senderPhone, phoneError);
+        return true;
+      }
+
+      function validateMessage() {
+        if (!senderMessage) return true;
+        const val = senderMessage.value.trim();
+        if (!val) {
+          showError(senderMessage, messageError, "Message cannot be empty.");
+          return false;
+        } else if (val.length < 5) {
+          showError(
+            senderMessage,
+            messageError,
+            "Message must be at least 5 characters long.",
+          );
+          return false;
+        }
+        clearError(senderMessage, messageError);
+        return true;
+      }
+
+      if (senderName) {
+        senderName.addEventListener("blur", validateName);
+        senderName.addEventListener("input", () => {
+          if (senderName.classList.contains("input-error")) validateName();
+        });
+      }
+      if (senderEmail) {
+        senderEmail.addEventListener("blur", validateEmail);
+        senderEmail.addEventListener("input", () => {
+          if (senderEmail.classList.contains("input-error")) validateEmail();
+        });
+      }
+      if (senderPhone) {
+        senderPhone.addEventListener("blur", validatePhone);
+        senderPhone.addEventListener("input", () => {
+          if (senderPhone.classList.contains("input-error")) validatePhone();
+        });
+      }
+      if (senderMessage) {
+        senderMessage.addEventListener("blur", validateMessage);
+        senderMessage.addEventListener("input", () => {
+          if (senderMessage.classList.contains("input-error"))
+            validateMessage();
+        });
+      }
+
       /* Direct Email Contact Form Handler (FormSubmit AJAX API with FormData & Activation Detection) */
       document
         .getElementById("contactForm")
         .addEventListener("submit", async function (e) {
           e.preventDefault();
+
+          const isNameValid = validateName();
+          const isEmailValid = validateEmail();
+          const isPhoneValid = validatePhone();
+          const isMessageValid = validateMessage();
+
+          if (!isNameValid || !isEmailValid || !isPhoneValid || !isMessageValid) {
+            return;
+          }
+
           const form = e.target;
           const btn = form.querySelector('button[type="submit"]');
           const originalBtnContent = btn.innerHTML;
@@ -3485,7 +3710,10 @@
       });
 
       function openResumeModal() {
-        window.open('https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view', '_blank');
+        window.open(
+          "https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view",
+          "_blank",
+        );
       }
 
       /* Ambient Glowing Mouse Follower Script */
