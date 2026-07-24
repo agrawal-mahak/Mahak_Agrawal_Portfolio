@@ -87,9 +87,9 @@ Then navigate to `http://localhost:8000` in your web browser.
 **Mahak Agrawal**  
 *Full Stack Developer & MERN Specialist*
 
-- 💼 **LinkedIn**: [Mahak Agrawal](https://linkedin.com)
-- 🐙 **GitHub**: [@MahakAgrawal](https://github.com)
-- ✉️ **Email**: contact@mahakagrawal.dev
+- 💼 **LinkedIn**: [Mahak Agrawal](https://www.linkedin.com/in/mahak-agrawal-372a41236/)
+- 🐙 **GitHub**: [@agrawal-mahak](https://github.com/agrawal-mahak)
+- ✉️ **Email**: [agrawalmahak7@gmail.com](mailto:agrawalmahak7@gmail.com)
 
 ---
 
