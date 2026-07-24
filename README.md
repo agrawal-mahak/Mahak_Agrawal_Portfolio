@@ -38,6 +38,15 @@ Welcome to the official repository for **Mahak Agrawal's Personal Portfolio Webs
 
 ---
 
+## 🔗 Featured Project Repositories
+
+- 📋 **[TaskFlow — Project Management Platform](https://github.com/agrawal-mahak/Project-Management-Platform-TaskFlow)**
+- 🎓 **[StudyNotion — EdTech Platform](https://github.com/agrawal-mahak/StudyNotion)**
+- 🛒 **[E-Shop Backend Service](https://github.com/agrawal-mahak/E-shop-backend)**
+- 🏗️ **[Smart Marine ERP Frontend](https://github.com/smart-marine/erp_frontend)**
+
+---
+
 ## 📂 Folder Structure
 
 ```text
