@@ -266,6 +266,164 @@
         box-shadow: 0 0 20px rgba(2, 132, 199, 0.35) !important;
       }
 
+      /* ==========================================================================
+         HIGH-TECH SITE PRELOADER & SKELETON LOADERS
+         ========================================================================== */
+      .site-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg-base);
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+      .site-preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .preloader-card {
+        text-align: center;
+        padding: 40px 45px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-glow);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-glow);
+        max-width: 380px;
+        width: 90%;
+      }
+      .preloader-spinner-wrapper {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 20px;
+      }
+      .spinner-ring-outer {
+        position: absolute;
+        inset: 0;
+        border: 3px solid transparent;
+        border-top-color: var(--accent-cyan);
+        border-right-color: var(--accent-purple);
+        border-radius: 50%;
+        animation: spinOuter 1.2s linear infinite;
+      }
+      .spinner-ring-inner {
+        position: absolute;
+        inset: 8px;
+        border: 3px solid transparent;
+        border-bottom-color: var(--accent-blue);
+        border-left-color: var(--accent-cyan);
+        border-radius: 50%;
+        animation: spinInner 0.8s linear infinite reverse;
+      }
+      .spinner-icon {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-cyan);
+        font-size: 1.4rem;
+      }
+      @keyframes spinOuter {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes spinInner {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-360deg); }
+      }
+      .preloader-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+      }
+      .preloader-status {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 18px;
+      }
+      .preloader-progress-track {
+        height: 5px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-full);
+        overflow: hidden;
+      }
+      .preloader-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: var(--accent-gradient);
+        border-radius: var(--radius-full);
+        transition: width 0.2s ease;
+      }
+
+      /* Animated Skeleton Shimmer Utility */
+      .skeleton-shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04) 25%,
+          rgba(255, 255, 255, 0.12) 50%,
+          rgba(255, 255, 255, 0.04) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmerWave 1.6s infinite ease-in-out;
+        border-radius: var(--radius-sm);
+      }
+      [data-theme="light"] .skeleton-shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(15, 23, 42, 0.06) 25%,
+          rgba(15, 23, 42, 0.14) 50%,
+          rgba(15, 23, 42, 0.06) 75%
+        );
+        background-size: 200% 100%;
+      }
+      @keyframes shimmerWave {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      .skeleton-text {
+        height: 1rem;
+        width: 100%;
+        margin-bottom: 8px;
+      }
+      .skeleton-title {
+        height: 1.8rem;
+        width: 60%;
+        margin-bottom: 12px;
+      }
+
+      .img-loader-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: inherit;
+      }
+      .img-loader-wrapper img {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .img-loader-wrapper img.loaded {
+        opacity: 1;
+      }
+      .img-loader-wrapper .skeleton-shimmer {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+      }
+      .img-loader-wrapper.done .skeleton-shimmer {
+        display: none;
+      }
+
       /* Base Resets & Overflow Protection */
       *,
       *::before,
@@ -2210,6 +2368,22 @@
     </style>
   </head>
   <body>
+    <!-- High-Tech Initializer Preloader Screen -->
+    <div class="site-preloader" id="sitePreloader">
+      <div class="preloader-card">
+        <div class="preloader-spinner-wrapper">
+          <div class="spinner-ring-outer"></div>
+          <div class="spinner-ring-inner"></div>
+          <div class="spinner-icon"><i class="fas fa-code"></i></div>
+        </div>
+        <div class="preloader-title">Mahak Agrawal</div>
+        <div class="preloader-status" id="preloaderStatus">Loading workspace modules...</div>
+        <div class="preloader-progress-track">
+          <div class="preloader-progress-bar" id="preloaderBar"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Interactive Custom Cursor System -->
     <div class="custom-cursor-dot" id="cursorDot"></div>
     <div class="custom-cursor-ring" id="cursorRing"></div>
@@ -2336,11 +2510,15 @@
 
           <div class="hero-image-wrapper">
             <div class="hero-avatar-card">
-              <img
-                src="MyPhoto.jpeg"
-                alt="Mahak Agrawal"
-                class="hero-avatar-img"
-              />
+              <div class="img-loader-wrapper">
+                <div class="skeleton-shimmer"></div>
+                <img
+                  src="MyPhoto.jpeg"
+                  alt="Mahak Agrawal"
+                  class="hero-avatar-img"
+                  onload="handleImageLoaded(this)"
+                />
+              </div>
             </div>
             <div class="status-badge hero-floating-badge">
               <div class="status-dot"></div>
@@ -3513,6 +3691,39 @@
 
     <!-- JS LOGIC -->
     <script>
+      /* Site Preloader Progress Simulation & Window Load Fade */
+      const preloader = document.getElementById("sitePreloader");
+      const preloaderBar = document.getElementById("preloaderBar");
+      const preloaderStatus = document.getElementById("preloaderStatus");
+
+      if (preloader && preloaderBar) {
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += Math.floor(Math.random() * 15) + 12;
+          if (progress >= 90) {
+            progress = 90;
+            clearInterval(interval);
+          }
+          preloaderBar.style.width = `${progress}%`;
+        }, 100);
+
+        window.addEventListener("load", () => {
+          clearInterval(interval);
+          preloaderBar.style.width = "100%";
+          if (preloaderStatus) preloaderStatus.textContent = "Workspace Ready!";
+          setTimeout(() => {
+            preloader.classList.add("fade-out");
+          }, 350);
+        });
+      }
+
+      /* Image Skeleton Loader Helper */
+      function handleImageLoaded(imgEl) {
+        imgEl.classList.add("loaded");
+        const wrapper = imgEl.closest(".img-loader-wrapper");
+        if (wrapper) wrapper.classList.add("done");
+      }
+
       /* Particle Background Canvas */
       const canvas = document.getElementById("particleCanvas");
       const ctx = canvas.getContext("2d");
