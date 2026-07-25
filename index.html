@@ -1411,25 +1411,95 @@
         transform: translateY(-3px);
       }
 
-      /* Ambient Glowing Mouse Follower */
+      /* Interactive Custom Cursor System */
+      @media (min-width: 992px) {
+        *,
+        *::before,
+        *::after {
+          cursor: none !important;
+        }
+
+        .custom-cursor-dot {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 8px;
+          height: 8px;
+          background: #00f2fe;
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 99999;
+          transform: translate(-50%, -50%);
+          transition: transform 0.15s ease-out, background 0.2s ease, opacity 0.2s ease;
+          box-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+        }
+
+        .custom-cursor-ring {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 36px;
+          height: 36px;
+          border: 1.5px solid rgba(0, 242, 254, 0.6);
+          background: transparent;
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 99998;
+          transform: translate(-50%, -50%);
+          transition: width 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                      height 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                      border-color 0.2s ease,
+                      background 0.2s ease,
+                      box-shadow 0.2s ease,
+                      opacity 0.2s ease;
+          box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .custom-cursor-ring.cursor-hover {
+          width: 54px;
+          height: 54px;
+          border-color: #00f2fe;
+          background: rgba(0, 242, 254, 0.04);
+          box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+        }
+
+        .custom-cursor-dot.cursor-hover {
+          transform: translate(-50%, -50%) scale(1.8);
+          background: #4facfe;
+          box-shadow: 0 0 15px #4facfe, 0 0 30px #4facfe;
+        }
+
+        .custom-cursor-ring.cursor-active {
+          transform: translate(-50%, -50%) scale(0.85);
+          border-color: #7928ca;
+          background: rgba(121, 40, 202, 0.25);
+          box-shadow: 0 0 20px rgba(121, 40, 202, 0.5);
+        }
+      }
+
+      @media (max-width: 991px) {
+        .custom-cursor-dot,
+        .custom-cursor-ring {
+          display: none !important;
+        }
+      }
+
+      /* Ambient Glowing Mouse Follower Spotlight */
       .cursor-glow {
         position: fixed;
-        width: 140px;
-        height: 140px;
+        width: 280px;
+        height: 280px;
         background: radial-gradient(
           circle,
-          rgba(0, 201, 167, 0.16) 0%,
-          rgba(0, 119, 181, 0.06) 55%,
-          transparent 75%
+          rgba(0, 242, 254, 0.14) 0%,
+          rgba(79, 172, 254, 0.06) 45%,
+          transparent 70%
         );
         border-radius: 50%;
         pointer-events: none;
-        z-index: 9998;
+        z-index: 9997;
         transform: translate(-50%, -50%);
-        transition:
-          width 0.3s ease,
-          height 0.3s ease,
-          background 0.3s ease;
+        transition: width 0.4s ease, height 0.4s ease, opacity 0.3s ease;
         display: none;
       }
       @media (min-width: 992px) {
@@ -1956,7 +2026,9 @@
     </style>
   </head>
   <body>
-    <!-- Ambient Glowing Mouse Follower -->
+    <!-- Interactive Custom Cursor System -->
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+    <div class="custom-cursor-ring" id="cursorRing"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- Canvas Background -->
@@ -2865,7 +2937,7 @@
           </div>
           <h2 class="section-title">Production Code Samples</h2>
           <p class="section-subtitle">
-            Click tabs to inspect clean enterprise code patterns & middleware
+            Click tabs to inspect clean enterprise code patterns & frontend architecture
             written by Mahak
           </p>
         </div>
@@ -3137,7 +3209,8 @@
               </div>
               <div class="form-group">
                 <label class="form-label" for="senderPhone"
-                  >Phone Number <span class="optional-tag">(Optional)</span></label
+                  >Phone Number
+                  <span class="optional-tag">(Optional)</span></label
                 >
                 <input
                   type="tel"
@@ -3393,16 +3466,53 @@
         }
       });
 
-      // Close mobile nav on link click
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
+      // Close mobile nav on link click & set active link
+      const spySections = document.querySelectorAll("section[id]");
+      const navAnchors = document.querySelectorAll(".nav-links a[href^='#']");
+
+      navAnchors.forEach((link) => {
+        link.addEventListener("click", (e) => {
           navLinks.classList.remove("active");
           if (menuIcon) {
             menuIcon.classList.remove("fa-times");
             menuIcon.classList.add("fa-bars");
           }
+          navAnchors.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
         });
       });
+
+      function syncActiveNavOnScroll() {
+        let currentId = "";
+        const scrollPosition = window.scrollY + 250;
+
+        spySections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentId = section.getAttribute("id");
+          }
+        });
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+          currentId = "contact";
+        }
+
+        if (currentId) {
+          navAnchors.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href === `#${currentId}`) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+      }
+
+      window.addEventListener("scroll", syncActiveNavOnScroll, { passive: true });
+      window.addEventListener("resize", syncActiveNavOnScroll, { passive: true });
+      setTimeout(syncActiveNavOnScroll, 100);
 
       /* Project Category Filtering */
       function filterProjects(category) {
@@ -3598,7 +3708,12 @@
           const isPhoneValid = validatePhone();
           const isMessageValid = validateMessage();
 
-          if (!isNameValid || !isEmailValid || !isPhoneValid || !isMessageValid) {
+          if (
+            !isNameValid ||
+            !isEmailValid ||
+            !isPhoneValid ||
+            !isMessageValid
+          ) {
             return;
           }
 
@@ -3716,12 +3831,78 @@
         );
       }
 
-      /* Ambient Glowing Mouse Follower Script */
+      /* High-Performance Smooth Interactive Custom Cursor System */
+      const cursorDot = document.getElementById("cursorDot");
+      const cursorRing = document.getElementById("cursorRing");
       const cursorGlow = document.getElementById("cursorGlow");
-      if (cursorGlow && window.innerWidth >= 992) {
+
+      if (window.innerWidth >= 992 && cursorDot && cursorRing) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        let ringX = mouseX;
+        let ringY = mouseY;
+        let glowX = mouseX;
+        let glowY = mouseY;
+
         window.addEventListener("mousemove", (e) => {
-          cursorGlow.style.left = `${e.clientX}px`;
-          cursorGlow.style.top = `${e.clientY}px`;
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          cursorDot.style.left = `${mouseX}px`;
+          cursorDot.style.top = `${mouseY}px`;
+        });
+
+        function renderCursor() {
+          ringX += (mouseX - ringX) * 0.18;
+          ringY += (mouseY - ringY) * 0.18;
+          glowX += (mouseX - glowX) * 0.08;
+          glowY += (mouseY - glowY) * 0.08;
+
+          cursorRing.style.left = `${ringX}px`;
+          cursorRing.style.top = `${ringY}px`;
+
+          if (cursorGlow) {
+            cursorGlow.style.left = `${glowX}px`;
+            cursorGlow.style.top = `${glowY}px`;
+          }
+
+          requestAnimationFrame(renderCursor);
+        }
+        requestAnimationFrame(renderCursor);
+
+        const interactiveSelector = "a, button, input, textarea, select, .btn, .card, .project-card, .editor-tab, .filter-tab-btn, .skill-card, .tech-pill, .stat-card";
+        
+        document.body.addEventListener("mouseover", (e) => {
+          if (e.target.closest(interactiveSelector)) {
+            cursorRing.classList.add("cursor-hover");
+            cursorDot.classList.add("cursor-hover");
+          }
+        });
+
+        document.body.addEventListener("mouseout", (e) => {
+          if (e.target.closest(interactiveSelector)) {
+            cursorRing.classList.remove("cursor-hover");
+            cursorDot.classList.remove("cursor-hover");
+          }
+        });
+
+        window.addEventListener("mousedown", () => {
+          cursorRing.classList.add("cursor-active");
+        });
+        window.addEventListener("mouseup", () => {
+          cursorRing.classList.remove("cursor-active");
+        });
+
+        document.addEventListener("mouseleave", () => {
+          cursorDot.style.opacity = "0";
+          cursorRing.style.opacity = "0";
+          if (cursorGlow) cursorGlow.style.opacity = "0";
+        });
+        document.addEventListener("mouseenter", () => {
+          cursorDot.style.opacity = "1";
+          cursorRing.style.opacity = "1";
+          if (cursorGlow) cursorGlow.style.opacity = "1";
         });
       }
 
