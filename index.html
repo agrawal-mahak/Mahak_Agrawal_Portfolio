@@ -88,22 +88,182 @@
       }
 
       [data-theme="light"] {
-        --bg-base: #f8fafc;
-        --bg-card: rgba(255, 255, 255, 0.88);
-        --bg-card-hover: rgba(255, 255, 255, 0.98);
-        --bg-header: rgba(248, 250, 252, 0.88);
-        --bg-pill: rgba(0, 119, 181, 0.08);
+        --bg-base: #f1f5f9;
+        --bg-card: #ffffff;
+        --bg-card-hover: #ffffff;
+        --bg-header: rgba(241, 245, 249, 0.92);
+        --bg-pill: rgba(2, 132, 199, 0.1);
 
         --text-primary: #0f172a;
-        --text-secondary: #475569;
+        --text-secondary: #334155;
         --text-muted: #64748b;
 
-        --border-color: rgba(0, 0, 0, 0.08);
-        --border-glow: rgba(0, 119, 181, 0.3);
+        --accent-cyan: #0284c7;
+        --accent-blue: #0369a1;
+        --accent-purple: #7c3aed;
+        --accent-coral: #e11d48;
+        --accent-gradient: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+        --accent-gradient-text: linear-gradient(
+          135deg,
+          #0284c7 0%,
+          #0d9488 50%,
+          #7c3aed 100%
+        );
 
-        --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
-        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
-        --shadow-glow: 0 0 25px rgba(0, 119, 181, 0.15);
+        --border-color: rgba(15, 23, 42, 0.12);
+        --border-glow: rgba(2, 132, 199, 0.45);
+
+        --shadow-sm: 0 4px 15px rgba(15, 23, 42, 0.06);
+        --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.1);
+        --shadow-glow: 0 0 25px rgba(2, 132, 199, 0.25);
+      }
+
+      /* High-Contrast Dark Hover Effects in Light Mode */
+      [data-theme="light"] body {
+        background-color: #f1f5f9;
+        color: #0f172a;
+      }
+
+      [data-theme="light"] header.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      }
+
+      [data-theme="light"] .nav-links a {
+        color: #334155;
+      }
+
+      [data-theme="light"] .nav-links a.active,
+      [data-theme="light"] .nav-links a:hover {
+        color: #0284c7;
+      }
+
+      [data-theme="light"] .glass-card {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      }
+
+      [data-theme="light"] .glass-card:hover {
+        border-color: #0284c7 !important;
+        box-shadow: 0 10px 30px rgba(2, 132, 199, 0.22) !important;
+      }
+
+      [data-theme="light"] .highlight-item:hover {
+        border-color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .skill-item {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        color: #0f172a;
+      }
+
+      [data-theme="light"] .skill-item:hover {
+        border-color: #0284c7 !important;
+        background: rgba(2, 132, 199, 0.08) !important;
+        color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .tech-pill {
+        background: rgba(2, 132, 199, 0.08);
+        border: 1px solid rgba(2, 132, 199, 0.2);
+        color: #0369a1;
+      }
+
+      [data-theme="light"] .tech-pill:hover {
+        background: #0284c7 !important;
+        color: #ffffff !important;
+        border-color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .btn-secondary {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.18);
+        color: #0f172a;
+      }
+
+      [data-theme="light"] .btn-secondary:hover {
+        border-color: #0284c7 !important;
+        color: #0284c7 !important;
+        background: rgba(2, 132, 199, 0.08) !important;
+      }
+
+      [data-theme="light"] .filter-btn {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        color: #334155;
+      }
+
+      [data-theme="light"] .filter-btn:hover {
+        border-color: #0284c7 !important;
+        color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .filter-btn.active {
+        background: #0284c7 !important;
+        color: #ffffff !important;
+        border-color: #0284c7 !important;
+        box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3) !important;
+      }
+
+      [data-theme="light"] .section-tag {
+        background: rgba(2, 132, 199, 0.1) !important;
+        border-color: rgba(2, 132, 199, 0.3) !important;
+        color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .status-badge {
+        background: rgba(2, 132, 199, 0.1) !important;
+        border-color: rgba(2, 132, 199, 0.3) !important;
+        color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .status-dot {
+        background: #0284c7 !important;
+        box-shadow: 0 0 10px #0284c7 !important;
+      }
+
+      [data-theme="light"] .metric-card:hover {
+        border-color: #0284c7 !important;
+        background: rgba(2, 132, 199, 0.05) !important;
+      }
+
+      [data-theme="light"] .project-card:hover {
+        border-color: #0284c7 !important;
+        box-shadow: 0 12px 35px rgba(2, 132, 199, 0.22) !important;
+      }
+
+      [data-theme="light"] .project-metrics-badge {
+        background: rgba(2, 132, 199, 0.1) !important;
+        color: #0284c7 !important;
+      }
+
+      [data-theme="light"] .timeline-dot {
+        background: #0284c7 !important;
+        box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2) !important;
+      }
+
+      [data-theme="light"] .custom-cursor-dot {
+        background: #0284c7 !important;
+        box-shadow: 0 0 8px #0284c7, 0 0 16px #0284c7 !important;
+      }
+
+      [data-theme="light"] .custom-cursor-dot.cursor-hover {
+        background: #0369a1 !important;
+        box-shadow: 0 0 12px #0369a1, 0 0 24px #0369a1 !important;
+      }
+
+      [data-theme="light"] .custom-cursor-ring {
+        border-color: rgba(2, 132, 199, 0.7) !important;
+        box-shadow: 0 0 12px rgba(2, 132, 199, 0.25) !important;
+      }
+
+      [data-theme="light"] .custom-cursor-ring.cursor-hover {
+        border-color: #0284c7 !important;
+        background: rgba(2, 132, 199, 0.1) !important;
+        box-shadow: 0 0 20px rgba(2, 132, 199, 0.35) !important;
       }
 
       /* Base Resets & Overflow Protection */
