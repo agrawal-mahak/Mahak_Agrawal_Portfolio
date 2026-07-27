@@ -26,9 +26,27 @@ if (preloader && preloaderBar) {
 
 /* Image Skeleton Loader Helper */
 function handleImageLoaded(imgEl) {
+  if (!imgEl) return;
   imgEl.classList.add("loaded");
   const wrapper = imgEl.closest(".img-loader-wrapper");
   if (wrapper) wrapper.classList.add("done");
+}
+window.handleImageLoaded = handleImageLoaded;
+
+// Auto-check images that finished loading before script parsed
+function checkImagesOnLoad() {
+  document.querySelectorAll(".img-loader-wrapper img").forEach((img) => {
+    if (img.complete && img.naturalHeight !== 0) {
+      handleImageLoaded(img);
+    } else {
+      img.addEventListener("load", () => handleImageLoaded(img));
+    }
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", checkImagesOnLoad);
+} else {
+  checkImagesOnLoad();
 }
 
 /* Particle Background Canvas */

@@ -379,7 +379,10 @@
   border-radius: inherit;
 }
 .img-loader-wrapper img {
-  opacity: 0;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: opacity 0.4s ease;
 }
 .img-loader-wrapper img.loaded {
@@ -388,9 +391,12 @@
 .img-loader-wrapper .skeleton-shimmer {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 .img-loader-wrapper.done .skeleton-shimmer {
+  opacity: 0;
   display: none;
 }
 
