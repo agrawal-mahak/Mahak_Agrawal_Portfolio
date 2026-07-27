@@ -118,6 +118,24 @@
   color: #0284c7 !important;
 }
 
+[data-theme="light"] .skills-marquee-container {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06) !important;
+}
+
+[data-theme="light"] .marquee-item {
+  background: #f8fafc !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .marquee-item:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.08) !important;
+}
+
 [data-theme="light"] .tech-pill {
   background: rgba(2, 132, 199, 0.08);
   border: 1px solid rgba(2, 132, 199, 0.2);
@@ -157,6 +175,24 @@
   background: #0284c7 !important;
   color: #ffffff !important;
   border-color: #0284c7 !important;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3) !important;
+}
+
+[data-theme="light"] .skill-tab-btn {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .skill-tab-btn:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .skill-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3) !important;
 }
 
@@ -1236,10 +1272,10 @@ header {
   position: relative;
   padding: 16px 0;
   margin-bottom: 35px;
-  background: rgba(18, 26, 43, 0.4);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .skills-marquee-track {
@@ -1258,20 +1294,21 @@ header {
   align-items: center;
   gap: 10px;
   padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   white-space: nowrap;
   transition: var(--transition);
 }
 
 .marquee-item:hover {
   border-color: var(--accent-cyan);
-  color: var(--text-primary);
-  background: rgba(0, 201, 167, 0.1);
+  color: var(--accent-cyan);
+  background: rgba(0, 201, 167, 0.12);
+  transform: translateY(-2px);
 }
 
 .marquee-item i {
