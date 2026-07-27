@@ -731,3 +731,17 @@ function closeProjectModal() {
   const modal = document.getElementById("projectModal");
   if (modal) modal.classList.remove("active");
 }
+
+/* Location Map Modal Functions */
+function openLocationMapModal() {
+  const modal = document.getElementById("locationMapModal");
+  if (modal) modal.classList.add("active");
+}
+
+function closeLocationMapModal() {
+  const modal = document.getElementById("locationMapModal");
+  if (modal) modal.classList.remove("active");
+}
+
+window.openLocationMapModal = openLocationMapModal;
+window.closeLocationMapModal = closeLocationMapModal;
