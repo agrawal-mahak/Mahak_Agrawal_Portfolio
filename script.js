@@ -594,7 +594,7 @@ if (terminalInput && terminalBody) {
 
 function openResumeModal() {
   window.open(
-    "https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view",
+    "https://docs.google.com/document/d/1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0",
     "_blank",
   );
 }

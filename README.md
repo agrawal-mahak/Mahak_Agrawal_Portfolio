@@ -87,7 +87,7 @@ Then navigate to `http://localhost:8000` in your web browser.
 **Mahak Agrawal**  
 *Full Stack Developer & MERN Specialist*
 
-- 📄 **Resume**: [Download / View Mahak Agrawal's Resume (PDF)](https://drive.google.com/file/d/1FjpOu3j_ke-Tiw4ofGkiV73xrnn1YdWl/view)
+- 📄 **Resume**: [Download / View Mahak Agrawal's Resume](https://docs.google.com/document/d/1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0)
 - 💼 **LinkedIn**: [Mahak Agrawal](https://www.linkedin.com/in/mahak-agrawal-372a41236/)
 - 🐙 **GitHub**: [@agrawal-mahak](https://github.com/agrawal-mahak)
 - ✉️ **Email**: [agrawalmahak7@gmail.com](mailto:agrawalmahak7@gmail.com)
