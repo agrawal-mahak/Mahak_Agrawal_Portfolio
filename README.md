@@ -29,12 +29,12 @@ Welcome to the official repository for **Mahak Agrawal's Personal Portfolio Webs
 
 ## 🛠️ Tech Stack
 
-| Category | Technologies |
-| :--- | :--- |
-| **Frontend** | HTML5, CSS3 (Custom Tokens & Design System), JavaScript (ES6+), React.js, Next.js, Redux |
-| **Backend & Databases** | Node.js, Express.js, MongoDB, RESTful APIs |
-| **Styling & Icons** | Vanilla CSS Grid/Flexbox, FontAwesome 6.4.0, Google Fonts (Plus Jakarta Sans, Inter, Fira Code) |
-| **Tools & Version Control** | Git, GitHub, VS Code |
+| Category                    | Technologies                                                                                    |
+| :-------------------------- | :---------------------------------------------------------------------------------------------- |
+| **Frontend**                | HTML5, CSS3 (Custom Tokens & Design System), JavaScript (ES6+), React.js, Next.js, Redux        |
+| **Backend & Databases**     | Node.js, Express.js, MongoDB, RESTful APIs                                                      |
+| **Styling & Icons**         | Vanilla CSS Grid/Flexbox, FontAwesome 6.4.0, Google Fonts (Plus Jakarta Sans, Inter, Fira Code) |
+| **Tools & Version Control** | Git, GitHub, VS Code                                                                            |
 
 ---
 
@@ -66,18 +66,23 @@ Mahak_Agrawal_portfolio/
 Since this project relies on clean, modern native web technologies, no heavy build steps or npm installations are required!
 
 ### Option 1: Direct File Open
+
 Simply double-click `index.html` or `portfolio.html` in your file explorer to open it in your browser of choice.
 
 ### Option 2: Using VS Code Live Server (Recommended)
+
 1. Open the repository in VS Code.
 2. Install the **Live Server** extension (by Daydey Ritesh).
 3. Right-click on `index.html` and select **"Open with Live Server"**.
 
 ### Option 3: Local HTTP Server via Node / Python
+
 Using Python 3:
+
 ```bash
 python -m http.server 8000
 ```
+
 Then navigate to `http://localhost:8000` in your web browser.
 
 ---
@@ -85,9 +90,9 @@ Then navigate to `http://localhost:8000` in your web browser.
 ## 👤 Author & Contact
 
 **Mahak Agrawal**  
-*Full Stack Developer & MERN Specialist*
+_Full Stack Developer & MERN Specialist_
 
-- 📄 **Resume**: [Download / View Mahak Agrawal's Resume](https://docs.google.com/document/d/1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0)
+- 📄 **Resume**: [Download / View Mahak Agrawal's Resume](https://docs.google.com/document/d/ 1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0)
 - 💼 **LinkedIn**: [Mahak Agrawal](https://www.linkedin.com/in/mahak-agrawal-372a41236/)
 - 🐙 **GitHub**: [@agrawal-mahak](https://github.com/agrawal-mahak)
 - ✉️ **Email**: [agrawalmahak7@gmail.com](mailto:agrawalmahak7@gmail.com)
@@ -97,3 +102,5 @@ Then navigate to `http://localhost:8000` in your web browser.
 ## 📄 License
 
 This repository is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this codebase for personal and commercial projects.
+
+--
