@@ -554,19 +554,19 @@ if (terminalInput && terminalBody) {
           response.innerHTML = `Available commands:<br>- <span style="color:#F59E0B">skills</span>: List top technical skills<br>- <span style="color:#F59E0B">experience</span>: View career experience summary<br>- <span style="color:#F59E0B">projects</span>: View key project titles<br>- <span style="color:#F59E0B">contact</span>: Show email & social links<br>- <span style="color:#F59E0B">hire</span>: Why hire Mahak?<br>- <span style="color:#F59E0B">clear</span>: Clear terminal`;
           break;
         case "skills":
-          response.innerHTML = `React.js, Next.js, Redux Toolkit, Node.js, Express.js, TypeScript, JavaScript (ES6+), MongoDB, MySQL, Docker, Kubernetes, Material UI, Tailwind CSS.`;
+          response.innerHTML = `Frontend: React.js, Next.js, Redux Toolkit, RTK Query, TypeScript, JavaScript (ES6+), Tailwind CSS, Material UI, Bootstrap<br>Backend: Node.js, Express.js, RESTful APIs, JWT, OAuth, RBAC, Multer, bcrypt<br>Databases & Cloud: MongoDB, Mongoose, MySQL, Docker, Kubernetes, Stripe, Razorpay, Cloudinary.`;
           break;
         case "experience":
-          response.innerHTML = `1. Smart Marine Teknoloji (Frontend Engineer): Built 15+ ERP modules, reduced data pipeline speeds 8s->2s.<br>2. Chawla Auto Components (Intern): Built e-commerce frontend & sales analytics dashboards.`;
+          response.innerHTML = `1. Smart Marine Teknoloji (Frontend Developer - React.js/Next.js | May 2024-Present): Built 15+ ERP modules for 200+ users, cut rendering 8s->2s, +25% performance, 95% sprint delivery.<br>2. Chawla Auto Components (Full Stack Developer Intern | Jan 2024-Apr 2024): Built React/Bootstrap e-commerce frontend & sales analytics dashboards.`;
           break;
         case "projects":
-          response.innerHTML = `1. Smart Marine ERP System<br>2. Marine Supply Chain Analytics<br>3. StudyNotion EdTech Platform<br>4. TaskFlow Project Management<br>5. E-Shop E-Commerce Suite`;
+          response.innerHTML = `1. ERP System (React/Next.js/Material UI/Redux/MySQL/Socket.IO)<br>2. Marine Supply Chain Analytics (React/Redux/Chart.js/RabbitMQ/Docker/AWS)<br>3. E-Shop E-Commerce Platform (Node/Express/MongoDB/React/Stripe)<br>4. TaskFlow Project Management (React/TypeScript/Node/Express/MongoDB/JWT)<br>5. StudyNotion EdTech Platform (React/Redux/Node/Express/MongoDB/Razorpay)<br>6. MEMORIES Social Image Sharing App (MERN Stack/JWT)`;
           break;
         case "contact":
-          response.innerHTML = `Email: agrawalmahak7@gmail.com<br>LinkedIn: linkedin.com/in/mahak-agrawal-372a41236/<br>GitHub: github.com/agrawal-mahak`;
+          response.innerHTML = `Email: agrawalmahak7@gmail.com | Phone: +91 9407552373<br>Location: Indore, MP, India<br>LinkedIn: linkedin.com/in/mahak-agrawal-372a41236/<br>GitHub: github.com/agrawal-mahak`;
           break;
         case "hire":
-          response.innerHTML = `<span style="color:#10B981;">95% Sprint delivery rate, 2+ years exp, zero critical bugs in prod, full stack proficiency across React + Node!</span>`;
+          response.innerHTML = `<span style="color:#10B981;">2.5+ years exp, 95% sprint delivery rate, 8s->2s rendering speedup, zero critical production bugs, full-stack MERN proficiency!</span>`;
           break;
         case "clear":
           terminalBody.innerHTML = "";
@@ -764,10 +764,14 @@ function toggleSpeechSynth() {
 window.toggleSpeechSynth = toggleSpeechSynth;
 
 const aiKnowledgeBase = {
-  "why-hire": "Mahak Agrawal brings 2+ years of hands-on expertise building production MERN & Next.js web systems. She specializes in writing clean, modular React architecture, optimizing REST APIs for sub-25ms latency, and delivering seamless user experiences.",
-  "tech-stack": "Mahak's core toolkit includes JavaScript (ES6+), TypeScript, React 18, Next.js, Redux Toolkit, Node.js, Express, MongoDB, Redis, Docker, and Tailwind CSS.",
-  "experience": "At Code-A-Tribe (1.5+ yrs) & Smart Technologies (7 mos), Mahak engineered enterprise ERP platforms, real-time analytics dashboards, and scalable database pipelines handling 100,000+ records with zero frame drops.",
-  "relocation": "Mahak is based in Ratlam, MP, India, and is 100% ready for immediate remote roles worldwide or relocation to major tech hubs."
+  "why-hire":
+    "Mahak Agrawal brings 2.5+ years of full stack MERN & frontend engineering experience. She cuts UI rendering times by up to 75% (8s to 2s), builds 15+ production ERP modules, maintains a 95% on-time Agile sprint delivery rate with zero critical production bugs, and delivers scalable end-to-end applications.",
+  "tech-stack":
+    "Mahak's core toolkit spans Frontend (React.js, Next.js, Redux Toolkit, RTK Query, TypeScript, Tailwind CSS, Material UI, Vite), Backend (Node.js, Express.js, RESTful APIs, JWT, OAuth, RBAC, Multer, bcrypt), Databases (MongoDB, Mongoose, MySQL), Payments & Media (Stripe, Razorpay, Cloudinary), and DevOps & Tools (Docker, Kubernetes, Git/GitHub, GitHub Actions, Postman, Cursor AI, Claude).",
+  experience:
+    "Mahak currently serves as Frontend Developer (React.js / Next.js) at Smart Marine Teknoloji Anonim Sirketi (Istanbul, Turkey - Remote, May 2024 - Present). Previously, she was Full Stack Developer Intern at Chawla Auto Components (Jan 2024 - Apr 2024). She has engineered 15+ ERP modules serving 200+ daily users, handling 10,000+ data records.",
+  relocation:
+    "Mahak is based in Ratlam, Madhya Pradesh, India (with MCA & B.Sc. CA degrees from Ratlam, MP). She is 100% ready for immediate remote roles worldwide or relocation to major tech hubs.",
 };
 
 function askAiQuestion(key) {
@@ -779,8 +783,8 @@ function askAiQuestion(key) {
   const userLabels = {
     "why-hire": "Why Hire Mahak?",
     "tech-stack": "Strongest Tech Stack?",
-    "experience": "Experience & Impact?",
-    "relocation": "Remote / Relocation?"
+    experience: "Experience & Impact?",
+    relocation: "Remote / Relocation?",
   };
 
   const userMsgDiv = document.createElement("div");
@@ -812,4 +816,3 @@ function askAiQuestion(key) {
   }, 700);
 }
 window.askAiQuestion = askAiQuestion;
-

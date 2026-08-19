@@ -29,21 +29,24 @@ Welcome to the official repository for **Mahak Agrawal's Personal Portfolio Webs
 
 ## 🛠️ Tech Stack
 
-| Category                    | Technologies                                                                                    |
-| :-------------------------- | :---------------------------------------------------------------------------------------------- |
-| **Frontend**                | HTML5, CSS3 (Custom Tokens & Design System), JavaScript (ES6+), React.js, Next.js, Redux        |
-| **Backend & Databases**     | Node.js, Express.js, MongoDB, RESTful APIs                                                      |
-| **Styling & Icons**         | Vanilla CSS Grid/Flexbox, FontAwesome 6.4.0, Google Fonts (Plus Jakarta Sans, Inter, Fira Code) |
-| **Tools & Version Control** | Git, GitHub, VS Code                                                                            |
+| Category                    | Technologies                                                                                                           |
+| :-------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**                | HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Redux Toolkit, RTK Query, Axios, Tailwind CSS, Material UI, Bootstrap |
+| **Backend & APIs**          | Node.js, Express.js, Express Middleware, RESTful API Design, JWT, OAuth, RBAC, Multer, bcrypt                         |
+| **Databases & DevOps**      | MongoDB (Schema Design, Aggregations), Mongoose, MySQL, Docker, Kubernetes, AWS, GitHub Actions                        |
+| **Payments & Media**        | Stripe, Razorpay, Cloudinary                                                                                           |
+| **Developer Tools**         | Cursor AI, Claude, GitHub Copilot, Git/GitHub, Postman, Hoppscotch, Swagger, Jira, Trello                              |
 
 ---
 
 ## 🔗 Featured Project Repositories
 
-- 📋 **[TaskFlow — Project Management Platform](https://github.com/agrawal-mahak/Project-Management-Platform-TaskFlow)**
-- 🎓 **[StudyNotion — EdTech Platform](https://github.com/agrawal-mahak/StudyNotion)**
-- 🛒 **[E-Shop Backend Service](https://github.com/agrawal-mahak/E-shop-backend)**
-- 🏗️ **[Smart Marine ERP Frontend](https://github.com/smart-marine/erp_frontend)**
+- 🏗️ **[ERP System](https://github.com/smart-marine/erp_frontend)** — 15+ ERP modules with RBAC & Socket.IO
+- 📊 **[Marine Supply Chain Analytics Platform](https://github.com/agrawal-mahak)** — Operational dashboards & RabbitMQ
+- 🛒 **[E-Shop – E-Commerce Platform](https://github.com/agrawal-mahak/E-shop-backend)** — MERN stack store with Stripe
+- 📋 **[TaskFlow — Project Management Platform](https://github.com/agrawal-mahak/Project-Management-Platform-TaskFlow)** — Trello-style Kanban workspace
+- 🎓 **[StudyNotion — EdTech Platform](https://github.com/agrawal-mahak/StudyNotion)** — Educational video platform with Razorpay
+- 📸 **[MEMORIES — Social Image Sharing App](https://github.com/agrawal-mahak)** — Full stack social application
 
 ---
 
@@ -54,9 +57,10 @@ Mahak_Agrawal_portfolio/
 ├── .gitignore        # Specifies intentionally untracked files for Git
 ├── README.md         # Documentation & repository overview
 ├── index.html        # Main entry point for the portfolio
-├── portfolio.html    # Core portfolio layout and interactive components
-├── MyPhoto.jpeg      # Profile photograph asset
-└── image.png         # Project screenshot / media asset
+├── portfolio.html    # Core portfolio layout redirect
+├── script.js         # Interactive features, CLI shell & Holographic AI Twin logic
+├── style.css         # Modern glassmorphism & responsive CSS styling
+└── MyPhoto.jpeg      # Profile photograph asset
 ```
 
 ---
@@ -90,12 +94,14 @@ Then navigate to `http://localhost:8000` in your web browser.
 ## 👤 Author & Contact
 
 **Mahak Agrawal**  
-_Full Stack Developer & MERN Specialist_
+_Full Stack MERN Developer (2.5+ Years Exp)_  
+📍 Indore, Madhya Pradesh, India
 
-- 📄 **Resume**: [Download / View Mahak Agrawal's Resume](https://docs.google.com/document/d/ 1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0)
+- 📄 **Resume**: [View Mahak Agrawal's Resume](https://docs.google.com/document/d/1mlL8S4n8qC50V_vjaIEVSACV9Fy1Z5Hr4dRndOanFlA/edit?tab=t.0)
 - 💼 **LinkedIn**: [Mahak Agrawal](https://www.linkedin.com/in/mahak-agrawal-372a41236/)
 - 🐙 **GitHub**: [@agrawal-mahak](https://github.com/agrawal-mahak)
 - ✉️ **Email**: [agrawalmahak7@gmail.com](mailto:agrawalmahak7@gmail.com)
+- 📞 **Phone**: +91 9407552373
 
 ---
 
