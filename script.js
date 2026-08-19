@@ -145,8 +145,7 @@ const mobileThemeIcon = document.getElementById("mobileThemeIcon");
 const mobileThemeText = document.getElementById("mobileThemeText");
 
 function toggleThemeMode() {
-  const currentTheme =
-    document.documentElement.getAttribute("data-theme");
+  const currentTheme = document.documentElement.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", newTheme);
 
@@ -165,8 +164,7 @@ function toggleThemeMode() {
   }
 }
 
-if (themeToggleBtn)
-  themeToggleBtn.addEventListener("click", toggleThemeMode);
+if (themeToggleBtn) themeToggleBtn.addEventListener("click", toggleThemeMode);
 if (mobileThemeToggleBtn)
   mobileThemeToggleBtn.addEventListener("click", toggleThemeMode);
 
@@ -261,10 +259,7 @@ function filterProjects(category) {
   }
 
   cards.forEach((card) => {
-    if (
-      category === "all" ||
-      card.getAttribute("data-category") === category
-    ) {
+    if (category === "all" || card.getAttribute("data-category") === category) {
       card.style.display = "flex";
     } else {
       card.style.display = "none";
@@ -283,7 +278,10 @@ skillTabBtns.forEach((btn) => {
     const category = btn.getAttribute("data-category");
 
     skillCategoryCards.forEach((card) => {
-      if (category === "all" || card.getAttribute("data-category") === category) {
+      if (
+        category === "all" ||
+        card.getAttribute("data-category") === category
+      ) {
         card.style.display = "block";
       } else {
         card.style.display = "none";
@@ -455,8 +453,7 @@ if (senderPhone) {
 if (senderMessage) {
   senderMessage.addEventListener("blur", validateMessage);
   senderMessage.addEventListener("input", () => {
-    if (senderMessage.classList.contains("input-error"))
-      validateMessage();
+    if (senderMessage.classList.contains("input-error")) validateMessage();
   });
 }
 
@@ -471,12 +468,7 @@ if (contactForm) {
     const isPhoneValid = validatePhone();
     const isMessageValid = validateMessage();
 
-    if (
-      !isNameValid ||
-      !isEmailValid ||
-      !isPhoneValid ||
-      !isMessageValid
-    ) {
+    if (!isNameValid || !isEmailValid || !isPhoneValid || !isMessageValid) {
       return;
     }
 
@@ -501,10 +493,7 @@ if (contactForm) {
 
       const data = await response.json();
 
-      if (
-        response.ok &&
-        (data.success === "true" || data.success === true)
-      ) {
+      if (response.ok && (data.success === "true" || data.success === true)) {
         showToast("🚀 Message sent directly to Mahak's Inbox!");
         form.reset();
       } else if (
@@ -745,3 +734,82 @@ function closeLocationMapModal() {
 
 window.openLocationMapModal = openLocationMapModal;
 window.closeLocationMapModal = closeLocationMapModal;
+
+/* ==========================================================================
+   HOLOGRAPHIC AI TWIN ASSISTANT LOGIC
+   ========================================================================== */
+
+/* --- 5. Holographic AI Twin Assistant Logic --- */
+let isTtsActive = false;
+
+function toggleAiTwinDrawer(forceState) {
+  const drawer = document.getElementById("aiTwinDrawer");
+  if (!drawer) return;
+  if (typeof forceState === "boolean") {
+    drawer.classList.toggle("active", forceState);
+  } else {
+    drawer.classList.toggle("active");
+  }
+}
+window.toggleAiTwinDrawer = toggleAiTwinDrawer;
+
+function toggleSpeechSynth() {
+  isTtsActive = !isTtsActive;
+  const btn = document.getElementById("aiTtsBtn");
+  if (btn) btn.classList.toggle("active", isTtsActive);
+  if (!isTtsActive && window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+}
+window.toggleSpeechSynth = toggleSpeechSynth;
+
+const aiKnowledgeBase = {
+  "why-hire": "Mahak Agrawal brings 2+ years of hands-on expertise building production MERN & Next.js web systems. She specializes in writing clean, modular React architecture, optimizing REST APIs for sub-25ms latency, and delivering seamless user experiences.",
+  "tech-stack": "Mahak's core toolkit includes JavaScript (ES6+), TypeScript, React 18, Next.js, Redux Toolkit, Node.js, Express, MongoDB, Redis, Docker, and Tailwind CSS.",
+  "experience": "At Code-A-Tribe (1.5+ yrs) & Smart Technologies (7 mos), Mahak engineered enterprise ERP platforms, real-time analytics dashboards, and scalable database pipelines handling 100,000+ records with zero frame drops.",
+  "relocation": "Mahak is based in Ratlam, MP, India, and is 100% ready for immediate remote roles worldwide or relocation to major tech hubs."
+};
+
+function askAiQuestion(key) {
+  const chatBody = document.getElementById("aiChatBody");
+  const answer = aiKnowledgeBase[key];
+  if (!chatBody || !answer) return;
+
+  // Render User Message Bubble
+  const userLabels = {
+    "why-hire": "Why Hire Mahak?",
+    "tech-stack": "Strongest Tech Stack?",
+    "experience": "Experience & Impact?",
+    "relocation": "Remote / Relocation?"
+  };
+
+  const userMsgDiv = document.createElement("div");
+  userMsgDiv.className = "ai-msg user";
+  userMsgDiv.innerHTML = `<div class="ai-msg-bubble">${userLabels[key] || key}</div>`;
+  chatBody.appendChild(userMsgDiv);
+
+  // Render Typing Indicator Bot Bubble
+  const botMsgDiv = document.createElement("div");
+  botMsgDiv.className = "ai-msg bot";
+  const bubble = document.createElement("div");
+  bubble.className = "ai-msg-bubble";
+  bubble.innerHTML = `<i class="fas fa-ellipsis-h fa-pulse"></i> Thinking...`;
+  botMsgDiv.appendChild(bubble);
+  chatBody.appendChild(botMsgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  setTimeout(() => {
+    bubble.textContent = answer;
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Optional Web Speech API Voice Narration
+    if (isTtsActive && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(answer);
+      utterance.rate = 1.0;
+      window.speechSynthesis.speak(utterance);
+    }
+  }, 700);
+}
+window.askAiQuestion = askAiQuestion;
+

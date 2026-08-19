@@ -971,8 +971,9 @@
             </div>
           </div>
         </div>
-      </div>
     </section>
+
+
 
     <!-- Education & Certifications -->
     <section id="education">
@@ -1344,7 +1345,9 @@
               <div class="contact-details">
                 <h4>
                   Location
-                  <span class="map-chip-tag"><i class="fas fa-map-marked-alt"></i> View Map</span>
+                  <span class="map-chip-tag"
+                    ><i class="fas fa-map-marked-alt"></i> View Map</span
+                  >
                 </h4>
                 <p>Ratlam, Madhya Pradesh, India</p>
               </div>
@@ -1552,7 +1555,7 @@
     <div
       class="modal-overlay"
       id="locationMapModal"
-      onclick="if(event.target===this) closeLocationMapModal()"
+      onclick="if (event.target === this) closeLocationMapModal();"
     >
       <div class="modal-content-card map-modal-card">
         <button
@@ -1570,7 +1573,10 @@
             ></i>
             <span>Ratlam, Madhya Pradesh, India</span>
           </div>
-          <span class="status-badge" style="padding: 4px 12px; font-size: 0.78rem">
+          <span
+            class="status-badge"
+            style="padding: 4px 12px; font-size: 0.78rem"
+          >
             <span class="status-dot"></span> Open for Remote & Relocation
           </span>
         </div>
@@ -1601,10 +1607,81 @@
               justify-content: center;
             "
           >
-            <i class="fas fa-external-link-alt"></i> Open Full View on Google Maps
+            <i class="fas fa-external-link-alt"></i> Open Full View on Google
+            Maps
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Holographic AI Twin Floating Assistant Widget -->
+    <div class="ai-twin-widget" id="aiTwinWidget">
+      <button
+        class="ai-twin-fab"
+        id="aiTwinFab"
+        onclick="toggleAiTwinDrawer()"
+        title="Chat with Mahak's Holographic AI Persona"
+      >
+        <div class="ai-avatar-circle">
+          <i class="fas fa-robot"></i>
+          <span class="ai-online-dot"></span>
+        </div>
+        <span class="ai-fab-label">Mahak's AI Twin</span>
+      </button>
+
+      <div class="ai-twin-drawer" id="aiTwinDrawer">
+        <div class="ai-drawer-header">
+          <div class="ai-avatar-header">
+            <div class="ai-avatar-circle sm"><i class="fas fa-robot"></i></div>
+            <div>
+              <strong class="ai-name">Mahak's AI Twin</strong>
+              <span class="ai-sub">Online • Powered by JS Logic</span>
+            </div>
+          </div>
+          <div class="ai-header-controls">
+            <button
+              class="ai-tts-btn"
+              id="aiTtsBtn"
+              onclick="toggleSpeechSynth()"
+              title="Toggle Audio Narration (Text-To-Speech)"
+            >
+              <i class="fas fa-volume-up" id="aiTtsIcon"></i>
+            </button>
+            <button
+              class="ai-close-btn"
+              onclick="toggleAiTwinDrawer(false)"
+              title="Close Assistant"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="ai-chat-body" id="aiChatBody">
+          <div class="ai-msg bot">
+            <div class="ai-msg-bubble">
+              👋 Hi there! I'm Mahak's interactive persona assistant. What would you like to know about her experience and skills?
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-quick-prompts">
+          <button class="prompt-chip" onclick="askAiQuestion('why-hire')">
+            ⚡ Why Hire Mahak?
+          </button>
+          <button class="prompt-chip" onclick="askAiQuestion('tech-stack')">
+            💻 Strongest Tech Stack?
+          </button>
+          <button class="prompt-chip" onclick="askAiQuestion('experience')">
+            💼 Experience & Impact?
+          </button>
+          <button class="prompt-chip" onclick="askAiQuestion('relocation')">
+            🌍 Remote / Relocation?
+          </button>
+        </div>
+      </div>
+    </div>
+
+
   </body>
 </html>
