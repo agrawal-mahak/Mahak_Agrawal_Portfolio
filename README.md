@@ -101,7 +101,6 @@ _Full Stack MERN Developer (2.5+ Years Exp)_
 - 💼 **LinkedIn**: [Mahak Agrawal](https://www.linkedin.com/in/mahak-agrawal-372a41236/)
 - 🐙 **GitHub**: [@agrawal-mahak](https://github.com/agrawal-mahak)
 - ✉️ **Email**: [agrawalmahak7@gmail.com](mailto:agrawalmahak7@gmail.com)
-- 📞 **Phone**: +91 9407552373
 
 ---
 
