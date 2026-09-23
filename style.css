@@ -2894,8 +2894,61 @@ footer::before {
   color: var(--accent-cyan);
 }
 
+/* ==========================================================================
+   FLOATING SCROLL-TO-TOP BUTTON
+   ========================================================================== */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  color: var(--accent-cyan);
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+}
+
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top-btn:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: var(--accent-cyan);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
 /* Mobile responsive adjustments for floating widgets */
 @media (max-width: 576px) {
+  .scroll-to-top-btn {
+    bottom: 130px;
+    right: 15px;
+    left: auto;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
   .ai-twin-widget {
     bottom: 20px;
     right: 15px;
